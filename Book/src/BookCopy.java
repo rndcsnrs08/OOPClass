@@ -1,3 +1,4 @@
+
 public class BookCopy {
 	private Book title;
 	private LibraryCard renter;

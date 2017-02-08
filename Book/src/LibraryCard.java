@@ -1,7 +1,7 @@
-
 import java.util.Vector;
 
-
+//I didn't create setters for any classes because it doesn't make sense to
+//assign serial numbers and IDs to something that can be changed
 public class LibraryCard {
 	private int IDNumber;
 	private static int counter = 1;
@@ -12,7 +12,7 @@ public class LibraryCard {
 		IDNumber = counter;
 		++counter;
 		name = nm;
-		bookList = empty();//make sure this is an actual function
+		bookList.removeAllElements();//make sure this is an actual function
 	}
 	public String getName() {return name;}
 	public int getCard() {return IDNumber;}

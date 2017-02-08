@@ -6,8 +6,8 @@ public class Book {
 	private int ISBN;
 	
 	public Book (String t, String a){
-		author = a;
 		title = t;
+		author = a;
 		ISBN = counter;
 		++counter;
 	}
