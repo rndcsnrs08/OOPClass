@@ -8,6 +8,12 @@ public class LibraryCard {
 	private String name;
 	private Vector<BookCopy> bookList = new Vector();
 	
+	public LibraryCard(String nm){
+		IDNumber = counter;
+		++counter;
+		name = nm;
+		bookList = empty();//make sure this is an actual function
+	}
 	public String getName() {return name;}
 	public int getCard() {return IDNumber;}
 	public void checkOut(String copyName){
