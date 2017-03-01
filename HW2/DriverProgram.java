@@ -1,4 +1,5 @@
 import java.util.*;
+import java.time.*;
 
 public class DriverProgram {
 	public static void main (String[] args) {
@@ -29,7 +30,46 @@ public class DriverProgram {
 		LibraryCard janeDoe = new LibraryCard("02","Jane Doe");
 		LibraryCard johnDoe = new LibraryCard("03","John Doe");
 
+		LocalDate today = LocalDate.now();
+		LocalDate earlyDueDate = today.minusWeeks(5);
+
+		
+		//public void testRegCheckOut(LibraryCard user, BookCopy bc){
+		//test regular checkOut
 		System.out.println(janeDoe.checkOutBook(lW));
-		janeDoe.checkOutBook
+		System.out.println(lW.getDueDate());
+		//}
+		
+		//public void testEarlyCheckOut(LibraryCard user, BookCopy bc, LocalDate earlyDate){
+		//checkOut with early date	
+		janeDoe.checkOutBook(end);
+		janeDoe.checkOutBook(gat, earlyDueDate);
+		janeDoe.checkOutBook(end, earlyDueDate);
+		janeDoe.checkOutBook(gE, earlyDueDate);
+		System.out.println(gat.getDueDate());
+		//}
+
+		//void testRenewDueDate(BookCopy bc){
+		//tests renewDueDate
+		gE.renewDueDate();
+		System.out.println(gE.getDueDate());
+		//}
+
+		//tests list sort
+		ArrayList<BookCopy> mainSortedList = janeDoe.sortList();
+		traverseAndPrintDate(mainSortedList);
+
+		ArrayList<BookCopy> lateBooks = janeDoe.isOverdue();
+		traverseAndPrintDate(lateBooks);
+
+		
+	}
+
+	public static void traverseAndPrintDate(ArrayList<BookCopy> bookList){
+		for (int i = 0; i < bookList.size(); i++){
+			BookCopy itBookCopy = bookList.get(i);
+			Book itBook = itBookCopy.getBook();
+			System.out.println(itBook.getTitle() + " " + itBookCopy.getDueDate());
+		}
 	}
 }
