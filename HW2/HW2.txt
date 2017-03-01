@@ -1,0 +1,22 @@
+
+Modify your classes so that:
+
+and LibraryCard has a non-negative balance, which is incurred if books are checked in past their  due  dates. The library charges $.10 per day per book.
+
+Modify your checkOut method to give the BookCopy a  due  date that is equal to three weeks from the day that the books are checked out.
+Modify your checkIn method to check if the book is overdue; if so, update the balance accordingly.
+Note:  ALSO create an additional checkIn and checkOut method that takes a  date as a parameter, so that you don't have to wait three weeks to test your code.
+
+Also create the following LibraryCard methods:
+- a renewal method which allows the cardholder to get a new  due date for that book. Renewal periods are in  two-week increments.
+- a method which takes a  date as a parameter and returns a list of books that are  due on or before that  date.
+- a method that checks if any books are overdue. ( ALSO create an additional method that takes a date as a parameter for ease of testing.)
+- a method that returns a list of all the books checked out, sorted by due date. (You may use an array or an ArrayList -- we're not focusing on the specific data structures yet.)
+
+Also create a tester main program that tests the methods created in this program. You may include user input or output, but that is not required. 
+
+Submit all of the JAVA files (NO class files, no folders) and a copy of your program output in one ZIPPED folder. Also please hand in a hard copy of your code and output. Please include your name as a comment on EACH file. 
+
+I prefer working code, but if for any reason your program does not work, or if it crashes when it's run, I strongly prefer for you to leave a comment notifying me of that rather than my discovering of that on my own. 
+
+This homework is due on March 2 at 9:30 AM. as
