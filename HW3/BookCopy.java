@@ -1,7 +1,7 @@
 // Sample solution for HW2
 import java.time.LocalDate;
 
-public class BookCopy {
+public class BookCopy extends LibraryMaterialCopy {
 	public static final int BORROWING_WEEKS = 3;
 	public static final int RENEWAL_WEEKS = 2;
 	public static final double FINE_PER_DAY = .10;
