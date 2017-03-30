@@ -1,6 +1,14 @@
+import java.time.LocalDate;
+
 public abstract class LibraryMaterialCopy {
-	private LibraryCard userCard;
-	private DueDate userDate;
+	private LibraryCard card;
+	private LocalDate dueDate;
+	
+	//THIS METHOD MAY CAUSE AN ERROR!!! KEEP THIS IN MIND
+	public LibraryMaterialCopy() {
+		card = null;
+		dueDate = null;
+	}
 	
 	abstract LibraryMaterial getLibraryMaterial();
 	abstract getTitle();
