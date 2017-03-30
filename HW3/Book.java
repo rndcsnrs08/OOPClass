@@ -1,14 +1,12 @@
 //Sample solution to HW2 
-class Book 
+class Book extends LibraryMaterial
  {
-	 private String isbn;
-	 private String title;
 	 private String author;
 	 
+	 //Have to change constructor; send isbn and title to super
 	 public Book (String i, String t, String a)
 	 {
-		 isbn = i;
-		 title = t;
+		 super(i,t);
 		 author = a;
 	 }
 	 
