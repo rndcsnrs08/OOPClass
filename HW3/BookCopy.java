@@ -16,8 +16,11 @@ public class BookCopy extends LibraryMaterialCopy {
 		dueDate = null;
 	}
 	
-	public Book getBook() {return book;}
+	//****Make sure this doesn't return ERRORS; same for other abstract classes
+	public LibraryMaterial getLibraryMaterial() {return book;}
 	public String getTitle() {return book.getTitle();}
+	public String getISBN() {return book.ISBN();}
+	
 	public LibraryCard getCard() {return card;}
 	public LocalDate getDueDate() {return dueDate;}
 	
