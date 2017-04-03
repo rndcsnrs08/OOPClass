@@ -3,7 +3,7 @@ class Book extends LibraryMaterial
  {
 	 private String author;
 	 
-	 //Have to change constructor; send isbn and title to super
+	 //constructor for Book calls constructor for superclass first
 	 public Book (String i, String t, String a)
 	 {
 		 super(i,t);
