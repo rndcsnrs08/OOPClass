@@ -14,9 +14,13 @@ public abstract class LibraryMaterialCopy {
 	abstract String getTitle();
 	abstract String getISBN();
 	abstract LocalDate getDueDate();
-	
+	abstract boolean returnLibraryMaterial();
+	abstract boolean renew();
+	abstract boolean renew(LocalDate);
+
 	//abstract helper methods for polymorphism
 	abstract double getFinePerDay();
 	abstract int getBorrowingPeriod();
+	
 	
 }
