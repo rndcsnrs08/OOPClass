@@ -2,9 +2,8 @@
 import java.time.LocalDate;
 
 public class DVDCopy extends LibraryMaterialCopy {
-	public static final int BORROWING_WEEKS = 3;
-	public static final int RENEWAL_WEEKS = 2;
-	public static final double FINE_PER_DAY = .10;
+	public static final int BORROWING_WEEKS = 2;
+	public static final double FINE_PER_DAY = 1.00;
 	private DVD dvd;
 	private LibraryCard card;
 	private LocalDate dueDate;
@@ -54,21 +53,15 @@ public class DVDCopy extends LibraryMaterialCopy {
 		return true;
 	}
 	
-	public boolean renew (LocalDate renewalDate)
-	//renews dvd using RENEWAL_WEEKS as interval
-	//returns false if dvds is not checked out
-	{
-		if (card == null)
-			return false;
-		dueDate = renewalDate.plusWeeks(RENEWAL_WEEKS);
-		return true;
-	}
-	
 	public boolean renew ()
-	//default method uses todays date as renewal date
+	//cannot renew DVDs; returns false
 	{
-		return renew(LocalDate.now());
+		System.out.println("Cannot renew DVDs");
+		return false;
 	}
 	
-
+	public void print() {
+		dvd.print();
+		System.out.println("Card: " + getCard() + "Due Date" + getDueDate());
+	}
 }
