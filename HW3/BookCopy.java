@@ -70,5 +70,10 @@ public class BookCopy extends LibraryMaterialCopy {
 		return renew(LocalDate.now());
 	}
 	
+	//make sure these print methods compile
+	public void print()
+	{
+		System.out.println("Title: " + getTitle() + "Card: " + getCard() + "Due Date: " + getDueDate());
+	}
 
 }
