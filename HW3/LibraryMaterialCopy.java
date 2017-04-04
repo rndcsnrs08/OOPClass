@@ -13,4 +13,8 @@ public abstract class LibraryMaterialCopy {
 	abstract LibraryMaterial getLibraryMaterial();
 	abstract getTitle();
 	abstract getISBN();
+	
+	//abstract helper methods for polymorphism
+	abstract getFinePerDay();
+	abstract getBorrowingPeriod();
 }
