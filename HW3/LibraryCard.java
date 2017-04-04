@@ -9,54 +9,54 @@ public class LibraryCard {
 	
 	private String id;
 	private String cardholderName;
-	private ArrayList<BookCopy> booksCheckedOut;
+	private ArrayList<LibraryMaterialCopy> libraryMaterialCheckedOut;
 	private double balance;
 	
 	public LibraryCard(String i, String name)
 	{
 		id = i;
 		cardholderName = name;
-		booksCheckedOut = new ArrayList<BookCopy>();
+		libraryMaterialCheckedOut = new ArrayList<LibraryMaterialCopy>();
 		balance = 0;
 	}
 	
 	public String getID() {return id;}
 	public String getCardholderName() {return cardholderName;}
-	public ArrayList<BookCopy> getBooksCheckedOut() {return booksCheckedOut;}
+	public ArrayList<LibraryMaterialCopy> getLibraryMaterialCheckedOut() {return libraryMaterialCheckedOut;}
 	
 	public void setCardholderName (String name) {cardholderName = name;}
 	
-	public boolean checkOutBook (BookCopy book, LocalDate todaysDate)
+	public boolean checkOutLibaryMaterial (LibraryMaterialCopy lM, LocalDate todaysDate)
 	//checks out book and sends message to BookCopy to check itself out too
 	//returns false if book is already checked out
 	//takes parameter that reflects the date that the checkout is happening
 	{
-		if (!book.checkOut(this,todaysDate)
+		if (!lM.checkOut(this,todaysDate)
 			return false;
-		booksCheckedOut.add(book);
+		libraryMaterialCheckedOut.add(lM);
 		return true;
 	}
 	
-	public boolean checkOutBook(BookCopy book)
+	public boolean checkOutLibraryMaterial(LibraryMaterialCopy lM)
 	//default check out, uses today's date
 	{
-		return checkOutBook(book, LocalDate.now());
+		return checkOutLibraryMaterial(lM, LocalDate.now());
 	}
 	
-	public boolean returnBook (BookCopy book, LocalDate returnDate)
+	public boolean returnLibrary (LibraryMaterialCopy lM, LocalDate returnDate)
 	//returns book and sends message to BookCopy to do the same
 	//returns false if book is not checked out
 	//takes parameter that expresses the date of return
 	{
-		LocalDate dueDate = book.getDueDate();
-		if (!book.returnBook())
+		LocalDate dueDate = lM.getDueDate();
+		if (!lM.returnBook())
 			return false;
-		if (!booksCheckedOut.remove(book))
+		if (!libraryMaterialCheckedOut.remove(book))
 			return false;
 		long daysBetween = ChronoUnit.DAYS.between(dueDate, returnDate);
 		if (daysBetween > 0) //book is returned late
 		{
-			balance += BookCopy.FINE_PER_DAY * daysBetween;
+			balance += lM.getFinePerDay() * daysBetween;
 		}
 
 		return true;
