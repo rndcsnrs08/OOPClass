@@ -62,6 +62,8 @@ public class DVDCopy extends LibraryMaterialCopy {
 	
 	public void print() {
 		dvd.print();
-		System.out.println("Card: " + getCard() + "Due Date" + getDueDate());
+		LibraryCard c = getCard();
+		LocalDate dD = getDueDate();
+		System.out.println("Card: " + c.getCardholderName() + "Due Date" + dD.toString());
 	}
 }
