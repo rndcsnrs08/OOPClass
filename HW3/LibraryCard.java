@@ -22,13 +22,13 @@ public class LibraryCard {
 	
 	public String getID() {return id;}
 	public String getCardholderName() {return cardholderName;}
-	public ArrayList<LibraryMaterialCopy> getLibraryMaterialCheckedOut() {return libraryMaterialCheckedOut;}
+	public ArrayList<LibraryMaterialCopy> getlibraryMaterialCheckedOut() {return libraryMaterialCheckedOut;}
 	
 	public void setCardholderName (String name) {cardholderName = name;}
 	
 	public boolean checkOutLibaryMaterial (LibraryMaterialCopy lM, LocalDate todaysDate)
-	//checks out book and sends message to BookCopy to check itself out too
-	//returns false if book is already checked out
+	//checks out LibraryMaterial and sends message to LibraryCopy to check itself out too
+	//returns false if lM is already checked out
 	//takes parameter that reflects the date that the checkout is happening
 	{
 		if (!lM.checkOut(this,todaysDate)
@@ -44,14 +44,14 @@ public class LibraryCard {
 	}
 	
 	public boolean returnLibrary (LibraryMaterialCopy lM, LocalDate returnDate)
-	//returns book and sends message to BookCopy to do the same
-	//returns false if book is not checked out
+	//returns lM and sends message to LibraryMaterialCopy to do the same
+	//returns false if lM is not checked out
 	//takes parameter that expresses the date of return
 	{
 		LocalDate dueDate = lM.getDueDate();
-		if (!lM.returnBook())
+		if (!lM.returnLibraryMaterial())
 			return false;
-		if (!libraryMaterialCheckedOut.remove(book))
+		if (!libraryMaterialCheckedOut.remove(lM))
 			return false;
 		long daysBetween = ChronoUnit.DAYS.between(dueDate, returnDate);
 		if (daysBetween > 0) //book is returned late
@@ -62,76 +62,76 @@ public class LibraryCard {
 		return true;
 	}
 	
-	public boolean returnBook (BookCopy book)
+	public boolean returnLibraryMaterial (LibraryMaterialCopy lM)
 	//default method, uses today's date as returns date
 	{
-		return returnBook(book, LocalDate.now());
+		return returnLibraryMaterial(lM, LocalDate.now());
 	}
 	
-	public boolean renewBook(BookCopy book, LocalDate renewalDate)
-	//renews book. Returns false if book is not checked out already
+	public boolean renewLibraryMaterial(LibraryMaterialCopy lM, LocalDate renewalDate)
+	//renews lM. Returns false if lM is not checked out already
 	//takes parameter that expresses date of renewal
 	{
-		if (!booksCheckedOut.contains(book))
+		if (!lMsCheckedOut.contains(lM))
 			return false;
-		if (!book.renew(renewalDate))
+		if (!lM.renew(renewalDate))
 			return false;
 		return true;
 	}
 	
-	public boolean renewBook (BookCopy book)
+	public boolean renewLibraryMaterial (LibraryMaterialCopy lM)
 	//default renewal method uses today's date as renewal date.
 	{
-		return renewBook(book, LocalDate.now());
+		return renewLibraryMaterial(lM, LocalDate.now());
 	}
 	
-	public ArrayList<BookCopy> getBooksDueBy(LocalDate date)
-	//returns an ArrayList of books due on or before date
+	public ArrayList<LibraryMaterialCopy> getLibraryMaterialsDueBy(LocalDate date)
+	//returns an ArrayList of LibraryMaterial due on or before date
 	{
-		ArrayList<BookCopy> booksDue = new ArrayList();
-		for (BookCopy book: booksCheckedOut)
+		ArrayList<LibraryMaterialCopy> LibraryMaterialDue = new ArrayList();
+		for (LibraryMaterialCopy lM: libraryMaterialCheckedOut)
 		{
-			if (book.getDueDate().isBefore(date) || book.getDueDate().equals(date))
+			if (lM.getDueDate().isBefore(date) || lM.getDueDate().equals(date))
 			{
-				booksDue.add(book);
+				LibraryMaterialDue.add(lM);
 			}
 		}
 		
-		return booksDue;
+		return LibraryMaterialDue;
 	}
 	
-	public ArrayList<BookCopy>  getBooksOverdue (LocalDate todaysDate)
-	//returns books overdue as of todaysDate
+	public ArrayList<LibraryMaterialCopy>  getLibraryMaterialOverdue (LocalDate todaysDate)
+	//returns LibraryMaterial overdue as of todaysDate
 	//which means that they were actually due by yesterday
 	{
-		return getBooksDueBy(todaysDate.minusDays(1));
+		return getLibraryMaterialDueBy(todaysDate.minusDays(1));
 	}
 	
-	public ArrayList getBooksOverdue()
-	//default method, returns books overdue as of today, which means that they 
+	public ArrayList getLibraryMaterialOverdue()
+	//default method, returns LibraryMaterial overdue as of today, which means that they 
 	//were due by yesterday
 	{
-		return getBooksOverdue(LocalDate.now());
+		return getLibraryMaterialOverdue(LocalDate.now());
 	}
 
-	public ArrayList<BookCopy> getBooksSorted()
-	//returns ArrayList of books, sorted by due date (earliest due date first)
+	public ArrayList<LibraryMaterialCopy> getLibraryMaterialSorted()
+	//returns ArrayList of LibraryMaterial, sorted by due date (earliest due date first)
 	//uses insertion sort 
 	{
-		for (int i = 1; i < booksCheckedOut.size(); i++)
+		for (int i = 1; i < libraryMaterialCheckedOut.size(); i++)
 		{
 			int j = i;
-			while (j > 0 && booksCheckedOut.get(j-1).getDueDate().isAfter(booksCheckedOut.get(j).getDueDate()))
+			while (j > 0 && libraryMaterialCheckedOut.get(j-1).getDueDate().isAfter(libraryMaterialCheckedOut.get(j).getDueDate()))
 			{
 				//swap elements in positions j and j-1
-				BookCopy temp = booksCheckedOut.get(j);
-				booksCheckedOut.set(j, booksCheckedOut.get(j-1));
-				booksCheckedOut.set(j-1, temp);
+				LibraryMaterialCopy temp = libraryMaterialCheckedOut.get(j);
+				libraryMaterialCheckedOut.set(j, libraryMaterialCheckedOut.get(j-1));
+				libraryMaterialCheckedOut.set(j-1, temp);
 				
 				j = j-1;
 			}
 		}
 
-		return booksCheckedOut;
+		return libraryMaterialCheckedOut;
 	}
 }
