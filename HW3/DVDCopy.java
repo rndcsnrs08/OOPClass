@@ -60,10 +60,17 @@ public class DVDCopy extends LibraryMaterialCopy {
 		return false;
 	}
 	
+	//print method for this class. uses dvd print method, then has to create local librarycard and duedate variables
+	//to use their string methods
 	public void print() {
 		dvd.print();
 		LibraryCard c = getCard();
 		LocalDate dD = getDueDate();
 		System.out.println("Card: " + c.getCardholderName() + "Due Date" + dD.toString());
 	}
+	
+	//the following are overridden abstract methods that will be used for the different fines between
+	//dvds and books. polymorphism
+	public double getFinePerDay(){ return FINE_PER_DAY; }
+	public int getBorrowingPeriod() { return BORROWING_WEEKS; }
 }
