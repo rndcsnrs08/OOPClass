@@ -73,7 +73,8 @@ public class BookCopy extends LibraryMaterialCopy {
 	//make sure these print methods compile
 	public void print()
 	{
-		System.out.println("Title: " + getTitle() + "Card: " + getCard() + "Due Date: " + getDueDate());
+		book.print();
+		System.out.println("Card: " + getCard() + "Due Date: " + getDueDate());
 	}
 
 }
