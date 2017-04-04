@@ -11,10 +11,10 @@ public abstract class LibraryMaterialCopy {
 	}
 	
 	abstract LibraryMaterial getLibraryMaterial();
-	abstract getTitle();
-	abstract getISBN();
+	abstract String getTitle();
+	abstract String getISBN();
 	
 	//abstract helper methods for polymorphism
-	abstract getFinePerDay();
-	abstract getBorrowingPeriod();
+	abstract double getFinePerDay();
+	abstract int getBorrowingPeriod();
 }
