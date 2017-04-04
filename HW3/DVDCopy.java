@@ -43,7 +43,7 @@ public class DVDCopy extends LibraryMaterialCopy {
 		return checkOut(borrower, LocalDate.now());
 	}
 	
-	public boolean returnDVD()
+	public boolean returnLibraryMaterial()
 			//returns dvd by removing card reference
 			//returns false if there is no reference to a card
 	{
@@ -51,6 +51,11 @@ public class DVDCopy extends LibraryMaterialCopy {
 			return false;
 		card = null;
 		return true;
+	}
+	
+	public boolean renew (LocalDate renewDate){
+		System.out.println("Cannot renew DVDs");
+		return false;
 	}
 	
 	public boolean renew ()
