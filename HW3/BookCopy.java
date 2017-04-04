@@ -78,5 +78,11 @@ public class BookCopy extends LibraryMaterialCopy {
 		LocalDate dD = getDueDate();
 		System.out.println("Card: " + c.getCardholderName() + "Due Date: " + dD.toString());
 	}
+	
+	
+	//the following are overridden abstract methods that will be used for the different fines between
+	//dvds and books. polymorphism
+	public double getFinePerDay(){ return FINE_PER_DAY; }
+	public int getBorrowingPeriod() { return BORROWING_WEEKS; }
 
 }
