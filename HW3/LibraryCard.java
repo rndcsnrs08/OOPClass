@@ -43,7 +43,7 @@ public class LibraryCard {
 		return checkOutLibraryMaterial(lM, LocalDate.now());
 	}
 	
-	public boolean returnLibrary (LibraryMaterialCopy lM, LocalDate returnDate)
+	public boolean returnLibraryMaterial (LibraryMaterialCopy lM, LocalDate returnDate)
 	//returns lM and sends message to LibraryMaterialCopy to do the same
 	//returns false if lM is not checked out
 	//takes parameter that expresses the date of return
@@ -72,7 +72,7 @@ public class LibraryCard {
 	//renews lM. Returns false if lM is not checked out already
 	//takes parameter that expresses date of renewal
 	{
-		if (!lMsCheckedOut.contains(lM))
+		if (!libraryMaterialCheckedOut.contains(lM))
 			return false;
 		if (!lM.renew(renewalDate))
 			return false;
@@ -85,7 +85,7 @@ public class LibraryCard {
 		return renewLibraryMaterial(lM, LocalDate.now());
 	}
 	
-	public ArrayList<LibraryMaterialCopy> getLibraryMaterialsDueBy(LocalDate date)
+	public ArrayList<LibraryMaterialCopy> getLibraryMaterialDueBy(LocalDate date)
 	//returns an ArrayList of LibraryMaterial due on or before date
 	{
 		ArrayList<LibraryMaterialCopy> LibraryMaterialDue = new ArrayList();
