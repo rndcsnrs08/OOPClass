@@ -44,7 +44,7 @@ public class BookCopy extends LibraryMaterialCopy {
 		return checkOut(borrower, LocalDate.now());
 	}
 	
-	public boolean returnBook()
+	public boolean returnLibraryMaterial()
 			//returns book by removing card reference
 			//returns false if there is no reference to a card
 	{
