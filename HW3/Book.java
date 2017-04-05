@@ -10,10 +10,12 @@ class Book extends LibraryMaterial
 		 author = a;
 	 }
 	 
+	 //mutators actually need to call super to access elements of superclass
 	 public String getIsbn () {return super.getIsbn();}
 	 public String getTitle() {return super.getTitle();}
 	 public String getAuthor() {return author;}
 	 
+	 //print method
 	 public void print() {
 	 	super.print();
 		System.out.println("Author: " + getAuthor());
