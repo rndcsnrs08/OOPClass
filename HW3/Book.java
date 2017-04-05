@@ -10,10 +10,13 @@ class Book extends LibraryMaterial
 		 author = a;
 	 }
 	 
-	 public String getIsbn () {return isbn;}
-	 public String getTitle() {return title;}
+	 public String getIsbn () {return super.getIsbn();}
+	 public String getTitle() {return super.getTitle();}
 	 public String getAuthor() {return author;}
 	 
-	 public void print() {System.out.println("Title: " + getTitle() + "Author: " + getAuthor() + "ISBN: " + getIsbn());}
+	 public void print() {
+	 	super.print();
+		System.out.println("Author: " + getAuthor();
+	}
 
 }
