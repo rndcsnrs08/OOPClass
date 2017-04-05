@@ -12,7 +12,7 @@ public abstract class LibraryMaterialCopy {
 	
 	abstract LibraryMaterial getLibraryMaterial();
 	abstract String getTitle();
-	abstract String getISBN();
+	abstract String getIsbn();
 	abstract LocalDate getDueDate();
 	abstract boolean returnLibraryMaterial();
 	abstract boolean renew();
@@ -23,6 +23,8 @@ public abstract class LibraryMaterialCopy {
 	abstract int getBorrowingPeriod();
 	
 	//taken straight from BookCopy; may need to set to an empty code block.
-	abstract boolean checkOut(LibraryCard borrower, LocalDate dateOfBorrowing);
-	abstract boolean checkOut (LibraryCard borrower);
+	abstract boolean checkOut(LibraryCard borrower, LocalDate dateOfBorrowing)
+;
+	abstract boolean checkOut (LibraryCard borrower)
+;
 }
