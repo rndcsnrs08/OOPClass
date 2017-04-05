@@ -31,7 +31,7 @@ public class LibraryCard {
 	//returns false if lM is already checked out
 	//takes parameter that reflects the date that the checkout is happening
 	{
-		if (!lM.checkOut(this,todaysDate)
+		if (!lM.checkOut(this,todaysDate))
 			return false;
 		libraryMaterialCheckedOut.add(lM);
 		return true;

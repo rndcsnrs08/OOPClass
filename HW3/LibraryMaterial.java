@@ -9,7 +9,7 @@ public abstract class LibraryMaterial {
 	}
 	
 	public void print(){
-		System.out.println("Title: " + title + "ISBN: " + ISBN;);
+		System.out.println("Title: " + title + "ISBN: " + ISBN);
 	}
 }
 	
