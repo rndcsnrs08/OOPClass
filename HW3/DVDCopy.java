@@ -15,13 +15,17 @@ public class DVDCopy extends LibraryMaterialCopy {
 		dueDate = null;
 	}
 	
-	//Again, make sure abstract methods don't return ERRORS!!!
+	//Accessors. Note that they call accessors to the other class as well
 	public LibraryMaterial getLibraryMaterial() {return dvd;}
 	public String getTitle() {return dvd.getTitle();}
 	public String getIsbn() { return dvd.getIsbn();}
-	
 	public LibraryCard getCard() {return card;}
 	public LocalDate getDueDate() {return dueDate;}
+	//Here again, we have accessors for the public static variables. It
+	//seems like this would be a smart standard practice, especially for
+	//any subclass.
+	public double getFinePerDay(){ return FINE_PER_DAY; }
+	public int getBorrowingPeriod() { return BORROWING_WEEKS; }
 	
 	public boolean checkOut(LibraryCard borrower, LocalDate dateOfBorrowing)
 	
@@ -53,20 +57,22 @@ public class DVDCopy extends LibraryMaterialCopy {
 		return true;
 	}
 	
+	//a simple class that returns false. I decided to override this method rather than omit,
+	//since it felt like a safer bet
 	public boolean renew (LocalDate renewDate){
 		System.out.println("Cannot renew DVDs");
 		return false;
 	}
 	
 	public boolean renew ()
-	//cannot renew DVDs; returns false
+	//same here
 	{
 		System.out.println("Cannot renew DVDs");
 		return false;
 	}
 	
 	//print method for this class. uses dvd print method, then has to create local librarycard and duedate variables
-	//to use their string methods
+	//to use their accessors
 	public void print() {
 		dvd.print();
 		LibraryCard c = getCard();
@@ -74,8 +80,4 @@ public class DVDCopy extends LibraryMaterialCopy {
 		System.out.println("Card: " + c.getCardholderName() + "Due Date" + dD.toString());
 	}
 	
-	//the following are overridden abstract methods that will be used for the different fines between
-	//dvds and books. polymorphism
-	public double getFinePerDay(){ return FINE_PER_DAY; }
-	public int getBorrowingPeriod() { return BORROWING_WEEKS; }
 }
