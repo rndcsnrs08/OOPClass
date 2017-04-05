@@ -46,6 +46,22 @@ public class DriverProgram {
 		janeDoe.returnLibraryMaterial(gat);
 		janeDoe.returnLibraryMaterial(lW);
 		
+				//tests list sort
+		ArrayList<LibraryMaterialCopy> mainSortedList = janeDoe.getLibraryMaterialSorted();
+		traverseAndPrintDate(mainSortedList);
+
+		ArrayList<LibraryMaterialCopy> lateLibraryMaterial = janeDoe.getLibraryMaterialOverdue();
+		traverseAndPrintDate(lateLibraryMaterial);
+
+		
+	}
+
+	public static void traverseAndPrintDate(ArrayList<LibraryMaterialCopy> libraryMaterialList){
+		for (int i = 0; i < libraryMaterialList.size(); i++){
+			LibraryMaterialCopy itLibraryMaterialCopy = libraryMaterialList.get(i);
+			LibraryMaterial itLibraryMaterial = itLibraryMaterialCopy.getLibraryMaterial();
+			System.out.println(itLibraryMaterial.getTitle() + " " + itLibraryMaterialCopy.getDueDate());
+		}
 	}
 
 }
