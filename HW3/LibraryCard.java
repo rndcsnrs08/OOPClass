@@ -2,9 +2,11 @@
 
 import java.util.ArrayList;
 import java.time.LocalDate;
-import 	java.time.temporal.ChronoUnit;
+import java.time.temporal.ChronoUnit;
 
-
+//A lot of changes were pretty much just swapping Book with LibraryMaterial, though there were some methods
+//pertaining to the LibraryMaterialCopy class that I forgot to implement and didn't find out until I tried
+//to compile this class.
 public class LibraryCard {
 	
 	private String id;
@@ -20,10 +22,11 @@ public class LibraryCard {
 		balance = 0;
 	}
 	
+	//accessors
 	public String getID() {return id;}
 	public String getCardholderName() {return cardholderName;}
 	public ArrayList<LibraryMaterialCopy> getlibraryMaterialCheckedOut() {return libraryMaterialCheckedOut;}
-	
+	//mutator
 	public void setCardholderName (String name) {cardholderName = name;}
 	
 	public boolean checkOutLibraryMaterial (LibraryMaterialCopy lM, LocalDate todaysDate)
