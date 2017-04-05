@@ -16,13 +16,15 @@ public class BookCopy extends LibraryMaterialCopy {
 		dueDate = null;
 	}
 	
-	//****Make sure this doesn't return ERRORS; same for other abstract classes
+	//accessors. we also need access to static variables because they will be different
+	//between subclasses
 	public LibraryMaterial getLibraryMaterial() {return book;}
 	public String getTitle() {return book.getTitle();}
 	public String getIsbn() {return book.getIsbn();}
-	
 	public LibraryCard getCard() {return card;}
 	public LocalDate getDueDate() {return dueDate;}
+	public double getFinePerDay(){ return FINE_PER_DAY; }
+	public int getBorrowingPeriod() { return BORROWING_WEEKS; }
 	
 	public boolean checkOut(LibraryCard borrower, LocalDate dateOfBorrowing)
 	
@@ -70,7 +72,7 @@ public class BookCopy extends LibraryMaterialCopy {
 		return renew(LocalDate.now());
 	}
 	
-	//make sure these print methods compile
+	//users other class's method, which calls super class's print method
 	public void print()
 	{
 		book.print();
@@ -78,11 +80,5 @@ public class BookCopy extends LibraryMaterialCopy {
 		LocalDate dD = getDueDate();
 		System.out.println("Card: " + c.getCardholderName() + "Due Date: " + dD.toString());
 	}
-	
-	
-	//the following are overridden abstract methods that will be used for the different fines between
-	//dvds and books. polymorphism
-	public double getFinePerDay(){ return FINE_PER_DAY; }
-	public int getBorrowingPeriod() { return BORROWING_WEEKS; }
 
 }
