@@ -16,7 +16,7 @@ class Book extends LibraryMaterial
 	 
 	 public void print() {
 	 	super.print();
-		System.out.println("Author: " + getAuthor();
+		System.out.println("Author: " + getAuthor());
 	}
 
 }
