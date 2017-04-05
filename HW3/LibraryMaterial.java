@@ -1,4 +1,4 @@
-public abstract class LibraryMaterial {
+public class LibraryMaterial {
 	private String title;
 	private String ISBN;
 	
