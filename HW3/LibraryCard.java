@@ -26,7 +26,7 @@ public class LibraryCard {
 	
 	public void setCardholderName (String name) {cardholderName = name;}
 	
-	public boolean checkOutLibaryMaterial (LibraryMaterialCopy lM, LocalDate todaysDate)
+	public boolean checkOutLibraryMaterial (LibraryMaterialCopy lM, LocalDate todaysDate)
 	//checks out LibraryMaterial and sends message to LibraryCopy to check itself out too
 	//returns false if lM is already checked out
 	//takes parameter that reflects the date that the checkout is happening

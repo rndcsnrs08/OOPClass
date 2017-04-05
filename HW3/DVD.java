@@ -12,7 +12,8 @@ class DVD extends LibraryMaterial {
 	public String getMainActor() {return mainActor;}
 	
 	public void print() {
-		System.out.println("Title: " + getTitle() + "ISBN: " + getIsbn() + "Main Actor: " + getMainActor());
+		super.print();
+		System.out.println("Main Actor: " + mainActor);
 	}
 
 }
