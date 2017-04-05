@@ -17,8 +17,8 @@ public class DVDCopy extends LibraryMaterialCopy {
 	
 	//Again, make sure abstract methods don't return ERRORS!!!
 	public LibraryMaterial getLibraryMaterial() {return dvd;}
-	public String getTitle() {return dvd.super.getTitle();}
-	public String getIsbn() { return dvd.super.getIsbn();}
+	public String getTitle() {return dvd.getTitle();}
+	public String getIsbn() { return dvd.getIsbn();}
 	
 	public LibraryCard getCard() {return card;}
 	public LocalDate getDueDate() {return dueDate;}
