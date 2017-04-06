@@ -15,7 +15,7 @@ public class DVDCopy extends LibraryMaterialCopy {
 		dueDate = null;
 	}
 	
-	//Accessors. Note that they call accessors to the other class as well
+	//Accessors. Note that they call accessors to the other class as well	-Randolph Cisneros
 	public LibraryMaterial getLibraryMaterial() {return dvd;}
 	public String getTitle() {return dvd.getTitle();}
 	public String getIsbn() { return dvd.getIsbn();}
@@ -23,7 +23,7 @@ public class DVDCopy extends LibraryMaterialCopy {
 	public LocalDate getDueDate() {return dueDate;}
 	//Here again, we have accessors for the public static variables. It
 	//seems like this would be a smart standard practice, especially for
-	//any subclass.
+	//any subclass.	-Randolph Cisneros
 	public double getFinePerDay(){ return FINE_PER_DAY; }
 	public int getBorrowingPeriod() { return BORROWING_WEEKS; }
 	
@@ -31,7 +31,7 @@ public class DVDCopy extends LibraryMaterialCopy {
 	
 	/*checks dvd out by setting card reference to borrower.
 	returns false if dvd is already checked out
-	sets due date to BORROWING_WEEKS after current date passed */
+	sets due date to BORROWING_WEEKS after current date passed	-Randolph Cisneros */
 	
 	{
 		if (card != null)
@@ -42,7 +42,7 @@ public class DVDCopy extends LibraryMaterialCopy {
 	}
 	
 	public boolean checkOut (LibraryCard borrower)
-	//default check out method that uses todays' date
+	//default check out method that uses todays' date	-Randolph Cisneros
 	{
 		return checkOut(borrower, LocalDate.now());
 	}
@@ -58,21 +58,21 @@ public class DVDCopy extends LibraryMaterialCopy {
 	}
 	
 	//a simple class that returns false. I decided to override this method rather than omit,
-	//since it felt like a safer bet
+	//since it felt like a safer bet	-Randolph Cisneros
 	public boolean renew (LocalDate renewDate){
 		System.out.println("Cannot renew DVDs");
 		return false;
 	}
 	
 	public boolean renew ()
-	//same here
+	//same here	-Randolph Cisneros
 	{
 		System.out.println("Cannot renew DVDs");
 		return false;
 	}
 	
 	//print method for this class. uses dvd print method, then has to create local librarycard and duedate variables
-	//to use their accessors
+	//to use their accessors	-Randolph Cisneros
 	public void print() {
 		dvd.print();
 		LibraryCard c = getCard();

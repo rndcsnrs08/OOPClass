@@ -6,7 +6,7 @@ import java.time.temporal.ChronoUnit;
 
 //A lot of changes were pretty much just swapping Book with LibraryMaterial, though there were some methods
 //pertaining to the LibraryMaterialCopy class that I forgot to implement and didn't find out until I tried
-//to compile this class.
+//to compile this class.	-Randolph Cisneros
 public class LibraryCard {
 	
 	private String id;
@@ -22,17 +22,17 @@ public class LibraryCard {
 		balance = 0;
 	}
 	
-	//accessors
+	//accessors	-Randolph Cisneros
 	public String getID() {return id;}
 	public String getCardholderName() {return cardholderName;}
 	public ArrayList<LibraryMaterialCopy> getlibraryMaterialCheckedOut() {return libraryMaterialCheckedOut;}
-	//mutator
+	//mutator	-Randolph Cisneros
 	public void setCardholderName (String name) {cardholderName = name;}
 	
 	public boolean checkOutLibraryMaterial (LibraryMaterialCopy lM, LocalDate todaysDate)
 	//checks out LibraryMaterial and sends message to LibraryCopy to check itself out too
 	//returns false if lM is already checked out
-	//takes parameter that reflects the date that the checkout is happening
+	//takes parameter that reflects the date that the checkout is happening	-Randolph Cisneros
 	{
 		if (!lM.checkOut(this,todaysDate))
 			return false;
@@ -41,7 +41,7 @@ public class LibraryCard {
 	}
 	
 	public boolean checkOutLibraryMaterial(LibraryMaterialCopy lM)
-	//default check out, uses today's date
+	//default check out, uses today's date	-Randolph Cisneros
 	{
 		return checkOutLibraryMaterial(lM, LocalDate.now());
 	}
@@ -49,7 +49,7 @@ public class LibraryCard {
 	public boolean returnLibraryMaterial (LibraryMaterialCopy lM, LocalDate returnDate)
 	//returns lM and sends message to LibraryMaterialCopy to do the same
 	//returns false if lM is not checked out
-	//takes parameter that expresses the date of return
+	//takes parameter that expresses the date of return	-Randolph Cisneros
 	{
 		LocalDate dueDate = lM.getDueDate();
 		if (!lM.returnLibraryMaterial())
@@ -66,14 +66,14 @@ public class LibraryCard {
 	}
 	
 	public boolean returnLibraryMaterial (LibraryMaterialCopy lM)
-	//default method, uses today's date as returns date
+	//default method, uses today's date as returns date	-Randolph Cisneros
 	{
 		return returnLibraryMaterial(lM, LocalDate.now());
 	}
 	
 	public boolean renewLibraryMaterial(LibraryMaterialCopy lM, LocalDate renewalDate)
 	//renews lM. Returns false if lM is not checked out already
-	//takes parameter that expresses date of renewal
+	//takes parameter that expresses date of renewal	-Randolph Cisneros
 	{
 		if (!libraryMaterialCheckedOut.contains(lM))
 			return false;
@@ -83,13 +83,13 @@ public class LibraryCard {
 	}
 	
 	public boolean renewLibraryMaterial (LibraryMaterialCopy lM)
-	//default renewal method uses today's date as renewal date.
+	//default renewal method uses today's date as renewal date.	-Randolph Cisneros
 	{
 		return renewLibraryMaterial(lM, LocalDate.now());
 	}
 	
 	public ArrayList<LibraryMaterialCopy> getLibraryMaterialDueBy(LocalDate date)
-	//returns an ArrayList of LibraryMaterial due on or before date
+	//returns an ArrayList of LibraryMaterial due on or before date	-Randolph Cisneros
 	{
 		ArrayList<LibraryMaterialCopy> LibraryMaterialDue = new ArrayList();
 		for (LibraryMaterialCopy lM: libraryMaterialCheckedOut)
@@ -105,21 +105,21 @@ public class LibraryCard {
 	
 	public ArrayList<LibraryMaterialCopy>  getLibraryMaterialOverdue (LocalDate todaysDate)
 	//returns LibraryMaterial overdue as of todaysDate
-	//which means that they were actually due by yesterday
+	//which means that they were actually due by yesterday	-Randolph Cisneros
 	{
 		return getLibraryMaterialDueBy(todaysDate.minusDays(1));
 	}
 	
 	public ArrayList getLibraryMaterialOverdue()
 	//default method, returns LibraryMaterial overdue as of today, which means that they 
-	//were due by yesterday
+	//were due by yesterday	-Randolph Cisneros
 	{
 		return getLibraryMaterialOverdue(LocalDate.now());
 	}
 
 	public ArrayList<LibraryMaterialCopy> getLibraryMaterialSorted()
 	//returns ArrayList of LibraryMaterial, sorted by due date (earliest due date first)
-	//uses insertion sort 
+	//uses insertion sort 	-Randolph Cisneros
 	{
 		for (int i = 1; i < libraryMaterialCheckedOut.size(); i++)
 		{

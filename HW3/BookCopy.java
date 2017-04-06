@@ -17,7 +17,7 @@ public class BookCopy extends LibraryMaterialCopy {
 	}
 	
 	//accessors. we also need access to static variables because they will be different
-	//between subclasses
+	//between subclasses	-Randolph Cisneros
 	public LibraryMaterial getLibraryMaterial() {return book;}
 	public String getTitle() {return book.getTitle();}
 	public String getIsbn() {return book.getIsbn();}
@@ -30,7 +30,7 @@ public class BookCopy extends LibraryMaterialCopy {
 	
 	/*checks book out by setting card reference to borrower.
 	returns false if book is already checked out
-	sets due date to BORROWING_WEEKS after current date passed */
+	sets due date to BORROWING_WEEKS after current date passed 	-Randolph Cisneros */
 	
 	{
 		if (card != null)
@@ -41,14 +41,14 @@ public class BookCopy extends LibraryMaterialCopy {
 	}
 	
 	public boolean checkOut (LibraryCard borrower)
-	//default check out method that uses todays' date
+	//default check out method that uses todays' date	-Randolph Cisneros
 	{
 		return checkOut(borrower, LocalDate.now());
 	}
 	
 	public boolean returnLibraryMaterial()
 			//returns book by removing card reference
-			//returns false if there is no reference to a card
+			//returns false if there is no reference to a card	-Randolph Cisneros
 	{
 		if (card == null)
 			return false;
@@ -58,7 +58,7 @@ public class BookCopy extends LibraryMaterialCopy {
 	
 	public boolean renew (LocalDate renewalDate)
 	//renews book using RENEWAL_WEEKS as interval
-	//returns false if books is not checked out
+	//returns false if books is not checked out	-Randolph Cisneros
 	{
 		if (card == null)
 			return false;
@@ -67,12 +67,12 @@ public class BookCopy extends LibraryMaterialCopy {
 	}
 	
 	public boolean renew ()
-	//default method uses todays date as renewal date
+	//default method uses todays date as renewal date	-Randolph Cisneros
 	{
 		return renew(LocalDate.now());
 	}
 	
-	//users other class's method, which calls super class's print method
+	//users other class's method, which calls super class's print method	-Randolph Cisneros
 	public void print()
 	{
 		book.print();
