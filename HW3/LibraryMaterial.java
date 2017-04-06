@@ -7,8 +7,12 @@ public class LibraryMaterial {
 		ISBN = i;
 		title = t;
 	}
+	
+	//accessors. This is the highest level and has direct access to title and ISBN
 	public String getTitle() {return title;}
 	public String getIsbn() {return ISBN; }
+	
+	//print method
 	public void print(){
 		System.out.println("Title: " + title + "ISBN: " + ISBN);
 	}
