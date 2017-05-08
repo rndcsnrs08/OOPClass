@@ -1,0 +1,41 @@
+ Modify your previous Library program as follows:
+
+1. Give your LibraryCard the functionality to be deep copied. Note that that means that you will need to be able to deep copy other objects in your code base as well. Use clone() for all of them, not copy constructors.
+
+2. Create a method in the LibraryMaterial class that accepts a string s as a parameter and returns true if the title of the string is equal to s.
+Create the same method for your library material copies. Note that it will need to be abstract in the LibraryMaterialCopy class (do you see why?).
+
+3. Create a Catalog class that should contain a mapping from LibraryMaterial to a collection of LibraryMaterialCopy. It should keep track of all the materials and copies of them in the library.
+It should support the following operations:
+1) Adding new library materials: given a book or dvd and a number n, it should create n copies of the material and add them to the catalog.
+2) Lookup copies by material: given a library material, it should return the collection of the copies of that material.
+3) Lookup material by title: given a title, it should return the library material that matches that title, or null if none exist.
+4) See all available copies: given a library material, it should return a collection of all copies of that material that are not checked out.
+5) Return a collection of all library materials in the library
+
+4. Add a method to the LibraryCard class that performs a lookup by title: given a title, the library material copy checked out to the card that match that title should be returned, or null if none exist.
+
+5. Create a LibraryCardManager class. It should contain a collection of LibraryCards and support the following operations:
+1) add new library cards
+2) lookup by ID: given an ID, return the library card associated with that ID, or null if none exist.
+
+6. Create a user menu (this can be in main) that supports the following operations:
+1) add new books and DVDs to the library
+2) add new library cards
+3) see all library materials in the catalog
+4) check out by entering a) the library card ID and b) the title of the library material to check out. If no copies of the material are available, a message should be displayed to the user indicating that. If more than one copy of the material is available, check out any available copy.
+After the book is checked out, the due date should be displayed.
+5) see all library material copies checked out to the card, given library card ID number
+6) return ("check in") a single library material copy, given title and library card ID
+7) return ("check in") all library material copies checked out to library card ID
+8) renew a book by specifying the title and library card ID. If the user enters the title of a DVD instead, a message should be displayed saying that DVDs may not be renewed.
+After the book is renewed, the new due date should be displayed.
+
+7. Test all of this out. Include a copy of your output.
+NOTE: In all of this, you may assume that the title of every library material in the library is unique, i.e., there do not exist 2+ books that have the same title, or 2+ DVDs that have the same title, or a book and a DVD that have the same title. This is a simplifying assumption that is obviously not true in the real world.
+
+Submit a ZIPPED copy of all source (.java) files and the output. No other files should be submitted (e.g. .class) and no subfolders.
+Also submit a hard copy of the above. Points will be deducted for lack of hard copy.
+Homeworks are due on May 11 at 9:30 AM.
+
+I am attaching a copy of a possible solution to HW3. Feel free to use it in creating your solution for HW4, but do not feel obligated. It has not been extensively tested; please let me know if you find any errors. 
