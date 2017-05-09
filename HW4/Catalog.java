@@ -62,7 +62,11 @@ class Catalog {
 	
 	//returns all library materials in library
 	public LinkedList<LibraryMaterial> getAllLibraryMaterial(){
-	
+		List<LibraryMaterial> allLibraryContent = new LinkedList<LibraryMaterial>();
+		for(LibraryMaterial lM : libraryContents.keySet()){
+			allLibraryContent.add(lM);
+		}
+		return allLibraryContent;
 	}
 	
 }
