@@ -43,10 +43,21 @@ class Catalog {
 		return null;
 	}
 
-	//
+	//Have to change because LibraryMaterialCopy is abstract
 	public LinkedList<LibraryMaterialCopy> getAvailableCopies(LibraryMaterial lM){
-	
-	
+		List<LibraryMaterialCopy> availableCopies = new LinkedList<LibraryMaterialCopy>();
+		List<LibraryMaterialCopy> allCopies = new LinkedList<LibraryMaterialCopy>();
+		
+		if(!libraryContents.containsKey(lM){return null;}
+		allCopies = libraryContents.get(lM);
+		   for(int i = 0; i < allCopies.size(); i++){
+			   LibraryMaterialCopy current = new LibraryMaterialCopy();
+			   current = allCopies.get(i);
+			   if(current.getCard() == null){
+				   availableCopies.add(current);
+			   }
+		   }
+		   return availableCopies;	
 	}
 	
 	//returns all library materials in library
