@@ -35,6 +35,16 @@ public class LibraryCard {
 	
 	public void setCardholderName (String name) {cardholderName = name;}
 	
+	public LibraryMaterialCopy lookUp (String title) {
+		for(int i = 0; i < libraryMaterialsCheckedOut.size(); i++){
+			LibraryMaterialCopy lM = new LibraryMaterialCopy();
+			lM = libraryMaterialsCheckedOut.get(i);
+			if(lM.getTitle() == title)
+				return lM;
+		}
+		return null;
+	}
+	
 	public boolean checkOutLibraryMaterial (LibraryMaterialCopy libraryMaterial, LocalDate todaysDate)
 	//checks out libraryMaterial and sends message to libraryMaterialCopy to check itself out too
 	//returns false if libraryMaterial is already checked out
