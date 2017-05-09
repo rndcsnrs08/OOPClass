@@ -35,8 +35,12 @@ class Catalog {
 	}
 	
 	//overloading lookUp for string title
-	public LibraryMaterial lookUp(String s){
-	
+	public LibraryMaterial lookUp(String title){
+		for(LibraryMaterial lM : libraryContents.keySet()){
+			if(title == lM.getTitle())
+				return lM;
+		}
+		return null;
 	}
 
 	//
