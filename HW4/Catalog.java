@@ -21,13 +21,17 @@ class Catalog {
 	public void addLibraryMaterial(DVD lM, int n){
 		for(int i = 0; i < n; i++){
 			DVDCopy dc = new DVDCopy(lM);
-			libraryContents.put(lM, dc);
+			//add to linked listlibraryContents.put(lM, dc);
 		}			
 	}
 	
 	//returns container of LibraryMaterialCopy
 	public LinkedList<LibraryMaterialCopy> lookUp(LibraryMaterial lM){
-	
+		if(libraryContents.containsKey(lM)){
+			return libraryContents.get(lM);
+		}
+		else
+			return null;
 	}
 	
 	//overloading lookUp for string title
