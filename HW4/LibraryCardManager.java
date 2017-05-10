@@ -1,6 +1,10 @@
 class LibraryCardManager {
 
-	private Map <String, LibraryCard> LibraryCards;
+	private Map <String, LibraryCard> libraryCards;
+	
+	public LibraryCardManager(){
+		libraryCards = new HashMap<String, LibraryCard>();
+	}
 	
 	public void addCard(LibraryCard lc){
 		libraryCards.put(lc.getID, lc);
