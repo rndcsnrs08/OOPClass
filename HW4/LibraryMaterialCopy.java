@@ -18,7 +18,7 @@ public abstract class LibraryMaterialCopy {
 	public abstract int getBorrowingWeeks();
 	public abstract double getFinePerDay();
 	public abstract boolean isRenewable();
-	public abstract boolean equalTitle(String);
+	public abstract boolean equalTitle(String s);
 	
 	public LibraryCard getCard() {return card;}
 	public LocalDate getDueDate() {return dueDate;}
