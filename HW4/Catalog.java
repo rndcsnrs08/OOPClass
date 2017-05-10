@@ -1,7 +1,11 @@
 class Catalog {
 
-	Map <LibraryMaterial, LinkedList<LibraryMaterialCopy>> libraryContents = new HashMap<LibraryMaterial, LinkedList<LibraryMaterialCopy>>();
+	private Map <LibraryMaterial, LinkedList<LibraryMaterialCopy>> libraryContents;
 
+	public Catalog(){
+		libraryContents = new HashMap<LibraryMaterial, LinkedList<LibraryMaterialCopy>>();
+	}
+		
 	//return true if able to add material, false if otherwise
 	public void addLibraryMaterial(Book lM, int n){
 		for(int i = 0; i < n; i++){
