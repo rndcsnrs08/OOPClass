@@ -58,6 +58,7 @@ public class BookCopy extends LibraryMaterialCopy {
 	}
 	
 	//implementing so that a string is still passed to equalTitle. LibraryMaterialCopy will have to pass getTitle() as parameter
+	@Override
 	public boolean equalTitle(String s){
 		if (book.getTitle() == s)
 			return true;
