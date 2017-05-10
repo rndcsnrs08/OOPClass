@@ -23,7 +23,7 @@ public class LibraryCard {
 	{
 		id = lC.getID();
 		cardholderName = lC.getCardholderName();
-		libraryMaterialsCheckedOut = new ArrayList<LibraryMaterialCopy> (lC.getlibraryMaterialsCheckedOut);
+		libraryMaterialsCheckedOut = new ArrayList<LibraryMaterialCopy> (lC.getlibraryMaterialsCheckedOut());
 		balance = lC.getBalance();
 	}
 	
